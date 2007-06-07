@@ -1,15 +1,15 @@
 %define up_name pxp
 %define name	ocaml-%{up_name}
-%define version	1.1.96
-%define release	%mkrel 1
+%define version	1.2.0
+%define release	%mkrel 0.test1.1
 %define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	A validating parser for XML
-Source: 	http://www.ocaml-programming.de/packages/%{up_name}-%{version}.tar.bz2
-Patch:      %{name}-1.1.96-destdir.patch
+Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}test1.tar.bz2
+Patch0:		%{name}-1.1.96-destdir.patch
 URL:		http://www.ocaml-programming.de/packages/
 License:	GPL
 Group:		Development/Other
@@ -22,17 +22,17 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}
 PXP  is a validating parser for XML-1.0 which has been written entirely in
 Objective Caml.
 
-%package devel
+%package	devel
 Summary:	Development files for %{name}
 Group:		Development/Other
 
-%description devel
+%description	devel
 This package contains the development files needed to build applications
 using %{name}.
 
 %prep
-%setup -q -n %{up_name}-%{version}
-%patch -p 1
+%setup -q -n %{up_name}-%{version}test1
+%patch -p1 -b .destdir
 
 %build
 ./configure
@@ -50,5 +50,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc LICENSE doc/*
 %{ocaml_sitelib}/*
-
 
