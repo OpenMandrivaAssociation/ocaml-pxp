@@ -16,7 +16,6 @@ Group:		Development/Other
 BuildRequires:	ocaml
 BuildRequires:	ocaml-ocamlnet-devel
 BuildRequires:	findlib
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 PXP  is a validating parser for XML-1.0 which has been written entirely in
