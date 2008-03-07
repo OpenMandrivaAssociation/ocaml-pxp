@@ -15,6 +15,7 @@ URL:		http://www.ocaml-programming.de/packages/
 License:	GPL
 Group:		Development/Other
 BuildRequires:	ocaml
+BuildRequires:	camlp4
 BuildRequires:	ocaml-ocamlnet-devel
 BuildRequires:	findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
