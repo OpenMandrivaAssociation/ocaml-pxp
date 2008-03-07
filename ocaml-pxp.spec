@@ -1,14 +1,15 @@
 %define up_name pxp
 %define name	ocaml-%{up_name}
 %define version	1.2.0
-%define release	%mkrel 0.test1.1
+%define pre     test2
+%define release	%mkrel 0.%{pre}.1
 %define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	A validating parser for XML
-Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}test1.tar.bz2
+Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}%{pre}.tar.gz
 Patch0:		%{name}-1.1.96-destdir.patch
 URL:		http://www.ocaml-programming.de/packages/
 License:	GPL
@@ -31,7 +32,7 @@ This package contains the development files needed to build applications
 using %{name}.
 
 %prep
-%setup -q -n %{up_name}-%{version}test1
+%setup -q -n %{up_name}-%{version}%{pre}
 %patch -p1 -b .destdir
 
 %build
