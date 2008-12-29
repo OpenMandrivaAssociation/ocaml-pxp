@@ -2,7 +2,7 @@
 %define name	ocaml-%{up_name}
 %define version	1.2.0
 %define pre     test2
-%define release	%mkrel 0.%{pre}.2
+%define release	%mkrel 0.%{pre}.3
 
 Name:		%{name}
 Version:	%{version}
@@ -25,6 +25,7 @@ Objective Caml.
 %package	devel
 Summary:	Development files for %{name}
 Group:		Development/Other
+Requires:   %{name} = %{version}-%{release}
 
 %description	devel
 This package contains the development files needed to build applications
