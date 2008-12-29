@@ -2,22 +2,20 @@
 %define name	ocaml-%{up_name}
 %define version	1.2.0
 %define pre     test2
-%define release	%mkrel 0.%{pre}.1
-%define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
+%define release	%mkrel 0.%{pre}.2
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	A validating parser for XML
 Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}%{pre}.tar.gz
-Patch0:		%{name}-1.1.96-destdir.patch
 URL:		http://www.ocaml-programming.de/packages/
 License:	GPL
 Group:		Development/Other
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:	ocaml-ocamlnet-devel
-BuildRequires:	findlib
+BuildRequires:	ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -34,7 +32,6 @@ using %{name}.
 
 %prep
 %setup -q -n %{up_name}-%{version}%{pre}
-%patch -p1 -b .destdir
 
 %build
 ./configure
@@ -42,14 +39,24 @@ make all opt
 
 %install
 rm -rf %{buildroot}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}/
-make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
+install -d -m 755 %{buildroot}/%{_libdir}/ocaml
+make install OCAMLFIND_DESTDIR="%{buildroot}/%{_libdir}/ocaml"
 
 %clean
 rm -rf %{buildroot}
 
-%files devel
+%files
 %defattr(-,root,root)
 %doc LICENSE doc/*
-%{ocaml_sitelib}/*
+%{_libdir}/ocaml/*
+%exclude %{_libdir}/ocaml/*/*.a
+%exclude %{_libdir}/ocaml/*/*.cmi
+%exclude %{_libdir}/ocaml/*/*.cmx
+%exclude %{_libdir}/ocaml/*/*.cmxa
 
+%files devel
+%defattr(-,root,root)
+%{_libdir}/ocaml/*/*.a
+%{_libdir}/ocaml/*/*.cmi
+%{_libdir}/ocaml/*/*.cmx
+%{_libdir}/ocaml/*/*.cmxa
