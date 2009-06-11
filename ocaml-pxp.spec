@@ -15,6 +15,8 @@ BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:	ocaml-ocamlnet-devel
 BuildRequires:	ocaml-findlib
+BuildRequires:	ocaml-pcre-devel
+BuildRequires:  ncurses-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
