@@ -4,7 +4,7 @@
 Summary:	An XML parser for OCaml
 Name:		ocaml-pxp
 Version:	1.2.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Other
 Url:		http://projects.camlcity.org/projects/pxp.html
