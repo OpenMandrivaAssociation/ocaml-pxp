@@ -7,7 +7,7 @@ Version:	1.2.4
 Release:	2
 License:	MIT
 Group:		Development/Other
-Url:		http://projects.camlcity.org/projects/pxp.html
+Url:		https://projects.camlcity.org/projects/pxp.html
 Source0:	http://download.camlcity.org/download/pxp-%{version}.tar.gz
 BuildRequires:	camlp4
 BuildRequires:	ocaml
