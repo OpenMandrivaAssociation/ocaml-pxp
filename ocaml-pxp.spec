@@ -9,6 +9,11 @@ License:	MIT
 Group:		Development/Other
 Url:		https://projects.camlcity.org/projects/pxp.html
 Source0:	http://download.camlcity.org/download/pxp-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	camlp4
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib
